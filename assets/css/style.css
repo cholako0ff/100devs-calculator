@@ -1,0 +1,90 @@
+/******************************************
+/* CSS
+/*******************************************/
+html{
+  font-size: 62.5%;
+  box-sizing: border-box;
+}
+
+/* Box Model Hack */
+*, *::before, *::after{
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  font-family: 'Poppins', sans-serif;
+  scroll-behavior: smooth;
+  list-style: none;
+  text-decoration: none;
+  border: none;
+}
+.clearfix:after {
+  content: ".";
+  display: block;
+  clear: both;
+  visibility: hidden;
+  line-height: 0;
+  height: 0;
+}
+.clear {
+clear: both;
+}
+
+body {
+  min-height: 100vh;
+  background-color: #fff;
+}
+
+/******************************************
+/* LAYOUT
+/*******************************************/
+.cal-body {
+  position: absolute;
+  width: 380px;
+  height: 520px;
+  background: black;
+  border-radius: 15px;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+   
+}
+.cal-screen {
+  display: block;
+  margin-right: auto;
+  margin-left: auto;
+  margin-top: 40px;
+  width: 80%;
+  font-size: 5rem;
+  height: 70px;
+  border: none;
+  border-radius: 7px;
+  background-color: white;
+  color: black;
+  text-align: right;
+  padding-right: 20px;
+}
+
+.cal-buttons {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  grid-template-rows: repeat(4, 1fr);
+  grid-column-gap: 15px;
+  grid-row-gap: 15px;
+  padding: 60px;
+}
+button {
+  color: #000000;
+  padding: 15px;
+  border-radius: 50%;
+  background-color: #fff;
+  font-weight: bold;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 24px;
+  /* margin-top: 10px 2px; */
+  cursor: pointer;
+}
+/******************************************
+/* ADDITIONAL STYLES
+/*******************************************/
