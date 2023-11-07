@@ -1,112 +1,28 @@
-// Come up with with a parent class
-// Extend that parent class into two children
-// // Use Encapsulation, Abstraction, Inheritance, and Polymorphism 
+/** Required abilities of a calculator
+ * accept user inputs of number, operator, and another number
+ * should acccept decimal numbers
+ * store inputs
+ * recognize input and perform calculations
+ * return a result
+ *  
+ */
 
-class Contractor{
-    constructor(name, role){
-        this._name = name
-        this._role = role
-    }
-    get name(){
-        return this._name
-    }
-    get role(){
-        return this._role
-    }
-    sayHello(){
-        console.log(`Hello, my name is ${this._name} and I'm on the ${this._role} team!`)
-    }
-    sayBye(){
-        console.log(`It's pleasure to work with you!`)
-    }
+const keys = document.querySelector('.cal-buttons')
+    keys.addEventListener('click', event => {
+        const {target} = event;
+       const {value} = target;
+        if (!target.matches('button')){
+           return
+        }else {
+            //pass to parse method
+            //console.log(value)
+        }
+    })
+
+const calculator = {
+    dispayText: '0',
+    prevTotal:
 }
-class Front extends Contractor{
-    constructor (name, role, tech){
-        super(name, role)
-        this._tech = tech
-    }
-    get tech(){
-        return this._tech
-    }
-    sayHello(){
-        console.log (`Hello, my name is ${this._name} and I work on the Fornt-end!`)
-    }
-}
-class Back extends Contractor {
-    constructor (name, role, tech){
-        super(name, role)
-        this._tech = tech
-    }
-    get tech(){
-        return this._tech
-    }
-    sayHello(){
-        console.log(`Hello, my name is ${this._name} and I work on the Back-end!`)
-    }
-}
-
-let simon = new Contractor('Simon', 'HR')
-let moshi = new Front('The Machine', 'Front-end', 'React')
-let simba = new Back('Simba', 'Back-edn', 'Node')
-
-let agencyList = [moshi, simba, simon]
-
-for (person of agencyList){
-    person.sayHello()
-}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 
