@@ -14,18 +14,76 @@ const keys = document.querySelector('.cal-buttons')
         if (!target.matches('button')){
            return
         }else {
-            //pass to parse method
+            calculator.parseInput(value)
             //console.log(value)
         }
     })
 
 const calculator = {
-    dispayText: '0',
-    prevTotal:
+    displayText: '0',
+    prevTotal: null,
+
+    parseInput(value){
+        switch(value) {
+            case '=' :
+                //calculate the answer
+                break;
+            case '.':
+                if(this.displayText == 0){
+                    addText('0.')
+                }else {
+                    addText(value)
+                }
+                break;
+                default:
+                    this.addText(value)
+                    break;
+        }
+    },
+    
+    addText(value){
+        if  (this.displayText === "0"){
+            this.displayText = ''
+        }else if (this.prevTotal !== null) {
+            this.displayText = this.prevTotal
+            this.prevTotal = null
+        }
+        if (isNaN(+(value)) && isNaN(this.displayText)){
+            if(isNaN(this.dispalyText.slice(-1))){
+                return
+            }
+        }
+        this.displayText += value
+        this.outputText(this.displayText)
+    },
+
+    outputText(text) {
+        document.querySelector('.cal-screen').value = text
+    }
+
+    operations(equation) {
+        
+    }
 }
 
 
 
+
+
+
+  //checks for add,sub,div,equal
+
+// case '+' :
+//     //addition
+//     break;
+//     case '-' :
+//         //substractin
+//         break;
+//         case '*' :
+//             //multiplication
+//             break;
+//             case '/' :
+//                 //division
 
 
 
