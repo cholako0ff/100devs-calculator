@@ -5,6 +5,11 @@
  * recognize input and perform calculations
  * return a result
  *  
+ * Need to fix:
+ * double '.' displaying bug
+ * Can not use the "result" after calculation
+ * Add an 'AC' button
+ * 
  */
 
 const keys = document.querySelector('.cal-buttons')
@@ -15,7 +20,6 @@ const keys = document.querySelector('.cal-buttons')
            return
         }else {
             calculator.parseInput(value)
-            //console.log(value)
         }
     })
 
@@ -24,20 +28,21 @@ const calculator = {
     prevTotal: null,
 
     parseInput(value){
+        //check for "special buttons" been clicked
         switch(value) {
-            case '=' :
-                //calculate the answer
+            case '=':
+                this.operations(this.displayText)
                 break;
             case '.':
                 if(this.displayText == 0){
-                    addText('0.')
+                    this.addText('0.')
                 }else {
-                    addText(value)
+                    this.addText(value)
                 }
                 break;
-                default:
-                    this.addText(value)
-                    break;
+            default:
+                this.addText(value)
+                break;
         }
     },
     
@@ -48,22 +53,25 @@ const calculator = {
             this.displayText = this.prevTotal
             this.prevTotal = null
         }
-        if (isNaN(+(value)) && isNaN(this.displayText)){
+        if (isNaN(+(value)) && isNaN(+(this.displayText))){
             if(isNaN(this.dispalyText.slice(-1))){
                 return
             }
         }
         this.displayText += value
         this.outputText(this.displayText)
+
     },
 
     outputText(text) {
         document.querySelector('.cal-screen').value = text
-    }
+    },
 
     operations(equation) {
-        
-    }
+        let result = Function("return " + equation)()
+        this.outputText(result)
+    },
+
 }
 
 
